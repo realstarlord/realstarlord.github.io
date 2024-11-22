@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamble</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="bet-controls">
+        <h2>Bet Amount</h2>
+        <input type="number" id="betAmount" placeholder="0.00" min="0">
+        <button class="btn small-btn">½</button>
+        <button class="btn small-btn">2x</button>
+      </div>
+      <div class="mines-controls">
+        <h2>Mines</h2>
+        <select id="minesCount">
+          <option value="1">1</option>
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <button class="btn bet-btn" onclick="startGame()">Bet</button>
+      <div class="balance">Balance: <span id="balance">1000</span> coins</div>
+      <div class="payout">Payout: x<span id="payout">1.00</span></div>
+      <button class="btn cashout-btn" onclick="cashOut()" id="cashOutButton" disabled>Cash Out</button>
+      <p id="message"></p>
+    </div>
+    <div class="game-area">
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<div id="probabilityModal" class="modal">

@@ -1,0 +1,168 @@
+/* Reset and basic styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar {
+  background-color: #2d2f34;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h2 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #c4c4c4;
+}
+
+.bet-controls,
+.mines-controls {
+  margin-bottom: 20px;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.bet-btn {
+  background-color: #32cd32;
+  width: 100%;
+  font-size: 1.2em;
+  margin-top: 15px;
+}
+
+.cashout-btn {
+  background-color: #ff3333;
+  width: 100%;
+  font-size: 1.1em;
+  margin-top: 15px;
+}
+
+.small-btn {
+  font-size: 0.8em;
+  padding: 5px;
+  width: 45%;
+}
+
+.game-area {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cell {
+  position: relative;
+  background-color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  aspect-ratio: 1; /* Ensures cells maintain a 1:1 aspect ratio */
+  transition: transform 0.2s ease;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+}
+
+.cell img {
+  width: 80%;
+  height: 80%;
+  transition: transform 0.3s ease;
+}
+
+.cell.revealed img {
+  transform: scale(0.8);
+}
+
+.cell.revealed {
+  background-color: #4CAF50;
+}
+
+.cell.gem {
+  background-color: #3c763d; /* Standard color for found gems */
+}
+
+.cell.bomb {
+  background-color: #e74c3d;
+  animation: shake 0.4s ease;
+}
+
+.cell.unrevealed-gem {
+  background-color: #2a2d30; /* Darker color for unrevealed gems */
+  opacity: 0.7; /* Makes unrevealed gems slightly transparent */
+  transition: opacity 0.3s ease; /* Animation effect for transition */
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+}
